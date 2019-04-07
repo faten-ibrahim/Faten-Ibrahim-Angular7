@@ -6,10 +6,8 @@ import { Injectable } from "@angular/core";
 })
 export class ProductService {
   private products_array: Iproduct[];
-  private cart_array:Iproduct[]=[];
-  private likes_array:Iproduct[]=[];
-
-
+  private cart_array: Iproduct[] = [];
+  private likes_array: Iproduct[] = [];
 
   constructor() {
     this.products_array = [
@@ -26,7 +24,7 @@ export class ProductService {
       {
         ProductId: "2",
         Description:
-          'Portable pocket Mouse with retracting cord, 4 GB DDR3 RAM, 500 GB ',
+          "Portable pocket Mouse with retracting cord, 4 GB DDR3 RAM, 500 GB ",
         Name: "Technocom",
         ProductPicUrl:
           "https://openui5.hana.ondemand.com/test-resources/sap/ui/documentation/sdk/images/HT-1138.jpg",
@@ -36,7 +34,7 @@ export class ProductService {
       {
         ProductId: "3",
         Description:
-          '720p, DLP Projector max. 8,45 Meter, 2D DLP Projector max. 8,45 Meter',
+          "720p, DLP Projector max. 8,45 Meter, 2D DLP Projector max. 8,45 Meter",
         Name: "Titanium",
         ProductPicUrl:
           "https://openui5.hana.ondemand.com/test-resources/sap/ui/documentation/sdk/images/HT-6100.jpg",
@@ -46,7 +44,7 @@ export class ProductService {
       {
         ProductId: "4",
         Description:
-          'Print 2400 dpi image quality color documents at speeds of up to 32 ppm ',
+          "Print 2400 dpi image quality color documents at speeds of up to 32 ppm ",
         Name: "Alpha Printers",
         ProductPicUrl:
           "https://openui5.hana.ondemand.com/test-resources/sap/ui/documentation/sdk/images/HT-1040.jpg",
@@ -77,7 +75,7 @@ export class ProductService {
       {
         ProductId: "7",
         Description:
-          'Wireless DSL Router / Repeater (available in blue, black and silver)',
+          "Wireless DSL Router / Repeater (available in blue, black and silver)",
         Name: "Red Point Stores",
         ProductPicUrl:
           "https://openui5.hana.ondemand.com/test-resources/sap/ui/documentation/sdk/images/HT-1116.jpg",
@@ -114,7 +112,7 @@ export class ProductService {
   get_product(id: string): Iproduct {
     // this.products_array[this.getSelectedIndex(id)];
     // console.log(this.getSelectedIndex(id));
-    const index=this.getSelectedIndex(id);
+    const index = this.getSelectedIndex(id);
     return this.products_array[index];
   }
 
@@ -127,21 +125,20 @@ export class ProductService {
     return -1;
   }
 
-  addTo_Cart(id:string):void{
-    const index=this.getSelectedIndex(id);
-    const item=this.products_array[index];
+  addTo_Cart(id: string): void {
+    const index = this.getSelectedIndex(id);
+    const item = this.products_array[index];
 
     this.cart_array.push(item);
     console.log(this.cart_array);
   }
 
-  addTo_Likes(id:string):void{
-    const index=this.getSelectedIndex(id);
-    const item=this.products_array[index];
+  addTo_Likes(id: string): void {
+    const index = this.getSelectedIndex(id);
+    const item = this.products_array[index];
 
     this.likes_array.push(item);
     console.log(this.likes_array);
-
   }
 
   get_cart_products(): Iproduct[] {
@@ -152,6 +149,24 @@ export class ProductService {
     return this.likes_array;
   }
 
+  remove_from_cart(id: string): void {
+    for (var i = 0; i < this.cart_array.length; i++) {
+      if (this.cart_array[i].ProductId == id) {
+        this.cart_array.splice(i, 1);
+        break;
+      }
+    }
+  }
+
+  remove_from_likes(id:string):void{
+    for (var i = 0; i < this.likes_array.length; i++) {
+      if (this.likes_array[i].ProductId == id) {
+        this.likes_array.splice(i, 1);
+        break;
+      }
+    }
+  }
 
 
+  
 }

@@ -1,3 +1,31 @@
-<p>
-  cart works!
-</p>
+<h2>Cart Items</h2>     
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Image</th>
+      <th>Price</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let i=index;" >
+      <td>{{i+1}}</td>
+      <td>{{product.Name}}</td>
+      <td id="desc">{{product.Description}}</td>
+      <td><img src="{{product.ProductPicUrl}}" width="100" class="" /></td>
+      <td>{{product.Price}} $ </td>
+      <td class="text-center"> <button class="btn btn-danger" (click)="removeItem(product.ProductId)"><i class="fa fa-times" aria-hidden="true"></i></button></td>
+    </tr>
+    
+  </tbody>
+  <div class="card text-white bg-info mb-3">
+      <div class="card-header">Total Price</div>
+      <div class="card-body">
+        <h3 class="card-text">{{getTotal()}} $ </h3>
+      </div>
+    </div>
+  
+</table>

@@ -23,4 +23,13 @@ export class NavComponent implements OnInit {
 
   }
 
+  removeItem(id:string):void{
+    
+    this._productService.remove_from_cart(id);
+  }
+
+  removeLike(id:string):void{
+    this._productService.remove_from_likes(id);
+  }
+
 }

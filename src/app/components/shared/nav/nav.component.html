@@ -16,7 +16,7 @@
             Cart Items :  {{cartProducts.length}} <i class="fa fa-cart-arrow-down"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a *ngFor="let product of cartProducts" class="dropdown-item" href="#">{{product.Name}} <i class="fa fa-window-close" aria-hidden="true"></i>
+            <a *ngFor="let product of cartProducts" class="dropdown-item">{{product.Name}} <i (click)="removeItem(product.ProductId)" class="fa fa-window-close" aria-hidden="true"></i>
             </a>
           </div>
         </li>
@@ -25,7 +25,7 @@
             Likes : {{likedProducts.length}} <i class="fas fa-heart"></i>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a *ngFor="let product of likedProducts" class="dropdown-item" href="#">{{product.Name}} <i class="fa fa-window-close" aria-hidden="true"></i></a>
+            <a *ngFor="let product of likedProducts" class="dropdown-item">{{product.Name}} <i (click)="removeLike(product.ProductId)" class="fa fa-window-close" aria-hidden="true"></i></a>
           </div>
         </li>
     </ul>
