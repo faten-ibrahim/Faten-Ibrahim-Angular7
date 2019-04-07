@@ -1,7 +1,27 @@
-nav{
-    a:active,a:hover{
-        background-color:  deepskyblue;
-
+nav {
+  .navbar-brand {
+    color: deepskyblue;
+    font-weight: bold;
+  }
+  li {
+    a:active,
+    a:hover {
+      background-color: deepskyblue;
+      color: #fff;
+      font-weight: bold;
+      .fa-window-close {
+        color: red;
+        margin-left: 5px;
+      }
+    }
+    a {
+      .fa-window-close {
+        margin-left: 15px;
+        color: deepskyblue;
+      }
     }
 
-} 
+    margin-right: 15px;
+    margin-left: 5px;
+  }
+}

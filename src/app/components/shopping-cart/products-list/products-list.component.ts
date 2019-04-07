@@ -1,5 +1,5 @@
 import { Iproduct } from './../../../models/iproduct';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { ProductService } from 'src/app/product.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -14,11 +14,20 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit() {
     this.products=this._productService.getAll_products();
-    console.log(this.products);
+    // console.log(this.products);
   }
 
   goTo(path: string,id:number): void {
     this.router.navigate([path,id]);
+  }
+
+  buyClick(id :string):void{
+    console.log(id);
+    this._productService.addTo_Cart(id);
+  }
+  likeClick(id:string):void{
+    console.log(id);
+    this._productService.addTo_Likes(id);
   }
 
 }

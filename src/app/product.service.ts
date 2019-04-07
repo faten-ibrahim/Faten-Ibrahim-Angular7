@@ -6,6 +6,10 @@ import { Injectable } from "@angular/core";
 })
 export class ProductService {
   private products_array: Iproduct[];
+  private cart_array:Iproduct[]=[];
+  private likes_array:Iproduct[]=[];
+
+
 
   constructor() {
     this.products_array = [
@@ -122,4 +126,32 @@ export class ProductService {
     }
     return -1;
   }
+
+  addTo_Cart(id:string):void{
+    const index=this.getSelectedIndex(id);
+    const item=this.products_array[index];
+
+    this.cart_array.push(item);
+    console.log(this.cart_array);
+  }
+
+  addTo_Likes(id:string):void{
+    const index=this.getSelectedIndex(id);
+    const item=this.products_array[index];
+
+    this.likes_array.push(item);
+    console.log(this.likes_array);
+
+  }
+
+  get_cart_products(): Iproduct[] {
+    return this.cart_array;
+  }
+
+  get_likes_products(): Iproduct[] {
+    return this.likes_array;
+  }
+
+
+
 }
