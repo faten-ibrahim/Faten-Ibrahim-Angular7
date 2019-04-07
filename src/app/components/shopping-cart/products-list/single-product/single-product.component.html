@@ -1,0 +1,25 @@
+<h2 class="text-center">Product Details</h2>
+<br />
+<br />
+<div class="card mb-3">
+  <div class="row no-gutters">
+    <div class="col-md-5">
+      <img
+        src="{{ showProduct().ProductPicUrl }}"
+        class="card-img"
+        alt="ProductPic"
+      />
+    </div>
+
+    <div class="col-md-7" style="float:right">
+      <div class="card-body">
+        <h4>Name</h4>
+        <h5 class="card-title">{{ showProduct().Name }}</h5>
+        <h4>Description</h4>
+        <h5 class="card-text">Description : {{ showProduct().Description }}</h5>
+        <h4>Price</h4>
+        <h5 class="card-text">Price : {{ showProduct().Price }} $</h5>
+      </div>
+    </div>
+  </div>
+</div>
