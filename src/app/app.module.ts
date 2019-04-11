@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,6 +14,10 @@ import {ProductsListComponent} from './components/shopping-cart/products-list/pr
 import { SingleProductComponent } from './components/shopping-cart/products-list/single-product/single-product.component';
 import { CartComponent } from './components/shopping-cart/cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { InputComponent } from './components/shared/formFields/input/input.component';
+import { SubmitComponent } from './components/shared/formFields/submit/submit.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 
 
@@ -27,7 +31,11 @@ import { HttpClientModule } from '@angular/common/http';
     ShoppingCartComponent,
     ProductsListComponent,
     SingleProductComponent,
-    CartComponent
+    CartComponent,
+    InputComponent,
+    SubmitComponent,
+    LoginComponent,
+    RegisterComponent
   
 
   ],
@@ -35,6 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]
