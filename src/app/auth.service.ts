@@ -7,6 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   public isLoggedIn:boolean;
+  public userName:string;
   public users:User[];
   constructor(private router: Router) {
     this.users=localStorage.getItem('users') ? JSON.parse(localStorage.getItem('users')) : [];
@@ -14,11 +15,13 @@ export class AuthService {
 
   public register(newUser:User){
     // alert("rrrrrrrrrrrrrrr");
-    // delete newUser['confirmPassword'];
+    delete newUser['confirmPassword'];
     console.log(newUser);
     this.users.push(newUser);
     localStorage.setItem('users', JSON.stringify(this.users));
+    this.userName=newUser['name'];
     this.isLoggedIn=true;
+    alert(this.userName);
     
   }
 
@@ -27,6 +30,8 @@ export class AuthService {
             if (this.users[i].email === userInfo.email) {
               if(this.users[i].password === userInfo.password){
                 this.isLoggedIn=true;
+                this.userName=userInfo['name'];
+                alert(this.userName);
                 // return true;
               }
                
@@ -35,21 +40,9 @@ export class AuthService {
     // localStorage.setItem("ACCESS_TOKEN", "access_token");
   }
 
-  // public isLoggedIn() {
-  //   return localStorage.getItem("ACCESS_TOKEN") !== null;
-  // }
 
   public logout() {
-    localStorage.removeItem("ACCESS_TOKEN");
+    this.isLoggedIn=false;
   }
-
-
-//  find_Index:boolean(this.users,searched_value:string){
-//     for (let i=0; i < arr.length; i++) {
-//       if (arr[i].email === searched_value) {
-//           return true;
-//       }
-//   }
-//   }
 
 }

@@ -28,6 +28,14 @@
             <a *ngFor="let product of likedProducts" class="dropdown-item">{{product.Name}} <i (click)="removeLike(product.ProductId)" class="fa fa-window-close" aria-hidden="true"></i></a>
           </div>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link">{{userName}}</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" (click)="logOut()">Log Out</a>
+        </li>
     </ul>
   </div>
 </nav>
