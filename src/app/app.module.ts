@@ -18,6 +18,8 @@ import { InputComponent } from './components/shared/formFields/input/input.compo
 import { SubmitComponent } from './components/shared/formFields/submit/submit.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 
@@ -45,6 +47,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [ProductService],
   bootstrap: [AppComponent]

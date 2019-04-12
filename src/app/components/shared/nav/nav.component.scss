@@ -14,8 +14,12 @@ nav {
         margin-left: 5px;
         cursor: pointer;
       }
+      .nav-link{
+        cursor: pointer;
+      }
     }
     a {
+      cursor: pointer;
       .fa-window-close {
         margin-left: 15px;
         color: deepskyblue;

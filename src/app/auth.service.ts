@@ -19,9 +19,9 @@ export class AuthService {
     console.log(newUser);
     this.users.push(newUser);
     localStorage.setItem('users', JSON.stringify(this.users));
-    this.userName=newUser['name'];
+    this.userName=newUser.name;
     this.isLoggedIn=true;
-    alert(this.userName);
+    // alert(this.userName);
     
   }
 
@@ -30,8 +30,8 @@ export class AuthService {
             if (this.users[i].email === userInfo.email) {
               if(this.users[i].password === userInfo.password){
                 this.isLoggedIn=true;
-                this.userName=userInfo['name'];
-                alert(this.userName);
+                this.userName=this.users[i].name;
+                // alert(this.userName);
                 // return true;
               }
                
